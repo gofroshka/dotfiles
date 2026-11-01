@@ -8,12 +8,12 @@
 
   outputs = {self, nixpkgs, ...}@inputs: {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      gofronix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 	modules = [
-	  ./hardware-configuration.nix
-	  ./configuration.nix
-	  ./programs.nix
+	  ./modules/hardware-configuration.nix
+	  ./modules/configuration.nix
+	  ./modules/programs.nix
 	];
       };	
     };

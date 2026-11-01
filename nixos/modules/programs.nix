@@ -1,7 +1,7 @@
 {self, pkgs, ...}:
 
 {
-  enviroment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     fastfetch
     btop
   ];
