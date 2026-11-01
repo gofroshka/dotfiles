@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
     ];
 
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -64,6 +65,7 @@
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     zellij
+    git
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

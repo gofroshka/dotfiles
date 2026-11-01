@@ -1,6 +1,6 @@
 {
 
-  description = "My NixOS Config"
+  description = "My NixOS Config";
   
   inputs = {
   	nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -13,6 +13,7 @@
 	modules = [
 	  ./hardware-configuration.nix
 	  ./configuration.nix
+	  ./programs.nix
 	];
       };	
     };
