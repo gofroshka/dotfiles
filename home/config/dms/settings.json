@@ -430,7 +430,7 @@
   "appLauncherGridColumns": 4,
   "dankLauncherV2BorderEnabled": false,
   "dankLauncherV2BorderThickness": 6,
-  "launcherEnterAction": "focus",
+  "launcherEnterAction": "launch",
   "controlCenterWidgets": [
     {
       "id": "user",

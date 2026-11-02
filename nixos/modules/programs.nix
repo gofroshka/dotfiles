@@ -2,8 +2,14 @@
 
 {
 
-  programs.niri.enable = true;
-  programs.dux-shell.enable = true;
+  programs = {
+    niri.enable = true;
+    dux-shell.enable = true;
+    dux-files = {
+      enable = true;
+      systemd.enable = true;
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     # Приложения
