@@ -18,6 +18,7 @@
             ./modules/programs.nix
             ./modules/appearance.nix
             ./modules/services.nix
+            ./modules/shell.nix
           ];
         };
       };
