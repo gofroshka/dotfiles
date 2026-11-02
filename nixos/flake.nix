@@ -7,15 +7,17 @@
   };
 
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    { nixpkgs, ... }:
     {
       nixosConfigurations = {
         gofronix = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./modules/hardware-configuration.nix
-            ./modules/configuration.nix
+            ./modules/system.nix
             ./modules/programs.nix
+            ./modules/appearance.nix
+            ./modules/services.nix
           ];
         };
       };

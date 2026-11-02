@@ -10,5 +10,8 @@
   },
   "theme": {
     "name": "system"
+  },
+  "scroll": {
+    "speed": 0.5
   }
 }

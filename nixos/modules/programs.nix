@@ -1,6 +1,10 @@
-{ self, pkgs, ... }:
+{ pkgs, ... }:
 
 {
+
+  programs.niri.enable = true;
+  programs.dms-shell.enable = true;
+
   environment.systemPackages = with pkgs; [
     # Приложения
     firefox
@@ -62,5 +66,12 @@
     shfmt
     taplo
     yaml-language-server
+
+    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    zellij
+    bibata-cursors
+    git
+    libsForQt5.qt5ct
+    kdePackages.qt6ct
   ];
 }
