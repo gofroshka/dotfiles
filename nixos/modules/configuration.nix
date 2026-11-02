@@ -5,15 +5,33 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
+  programs.niri.enable = true;
+  programs.dms-shell.enable = true;
 
-  programs.niri.enabled = true;
+  services.power-profiles-daemon.enable = true;
+  services.upower.enable = true;
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  services.displayManager.dms-greeter = {
+    enable = true;
+    compositor.name = "niri";
+
+    configHome = "/home/gofroshka";
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "qt5ct";
+  };
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -43,7 +61,7 @@
     LC_NUMERIC = "ru_RU.UTF-8";
     LC_PAPER = "ru_RU.UTF-8";
     LC_TELEPHONE = "ru_RU.UTF-8";
-    LC_TIME = "ru_RU.UTF-8";
+    LC_TIME = "en_US.UTF-8";
   };
 
   # Configure keymap in X11
@@ -56,8 +74,11 @@
   users.users."gofroshka" = {
     isNormalUser = true;
     description = "gofroshka";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    packages = with pkgs; [ ];
   };
 
   # Allow unfree packages
@@ -68,7 +89,10 @@
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     zellij
+    bibata-cursors
     git
+    libsForQt5.qt5ct
+    kdePackages.qt6ct
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
