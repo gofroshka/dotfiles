@@ -13,7 +13,7 @@
         gofronix = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./modules/hardware-configuration.nix
+            ./modules/hardware.nix
             ./modules/system.nix
             ./modules/programs.nix
             ./modules/appearance.nix
