@@ -1,0 +1,3 @@
+binds {
+    Mod+space hotkey-overlay-title="Default Launcher: Toggle" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+}

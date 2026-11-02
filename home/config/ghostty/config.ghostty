@@ -1,0 +1,10 @@
+theme = dankcolors
+
+app-notifications = false
+
+resize-overlay = never
+window-decoration = none
+gtk-tabs-location = hidden
+
+confirm-close-surface = false
+
