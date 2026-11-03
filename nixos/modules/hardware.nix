@@ -13,6 +13,11 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
   boot = {
     initrd.availableKernelModules = [
       "nvme"

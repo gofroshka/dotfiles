@@ -1,4 +1,20 @@
 binds {
+    // Управление медиаплеером
+    XF86AudioPlay repeat=false allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
+    XF86AudioPause repeat=false allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "pause"; }
+    XF86AudioNext repeat=false allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "next"; }
+    XF86AudioPrev repeat=false allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "previous"; }
+
+    // Громкость
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "5"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "5"; }
+    XF86AudioMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
+    XF86AudioMicMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "micmute"; }
+
+    // Яркость экрана
+    XF86MonBrightnessUp allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment" "5" "backlight:amdgpu_bl1"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement" "5" "backlight:amdgpu_bl1"; }
+
     Mod+Return hotkey-overlay-title="Terminal" { spawn "ghostty"; }
     Mod+Shift+Return hotkey-overlay-title="Terminal with Zellij" { spawn "ghostty" "-e" "zellij"; }
     Mod+A hotkey-overlay-title="Browser" { spawn "firefox"; }

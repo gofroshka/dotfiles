@@ -6,10 +6,20 @@
     udisks2.enable = true;
     gvfs.enable = true;
 
-    displayManager.dux-greeter = {
-      enable = true;
-      compositor.name = "niri";
-      configHome = "/home/gofroshka";
+    displayManager = {
+
+      autoLogin = {
+        enable = true;
+        user = "gofroshka";
+      };
+
+      defaultSession = "niri";
+
+      dux-greeter = {
+        enable = true;
+        compositor.name = "niri";
+        configHome = "/home/gofroshka";
+      };
     };
   };
 }
