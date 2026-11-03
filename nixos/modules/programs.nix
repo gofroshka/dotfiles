@@ -9,7 +9,7 @@
 
       # Home Assistant plugin imports the QtWebSockets QML module.
       quickshell.package = pkgs.quickshell.overrideAttrs (old: {
-        buildInputs = (old.buildInputs or []) ++ [
+        buildInputs = (old.buildInputs or [ ]) ++ [
           pkgs.qt6.qtwebsockets
         ];
       });
@@ -19,6 +19,7 @@
       systemd.enable = true;
     };
     gpu-screen-recorder.enable = true;
+    librepods.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -44,6 +45,7 @@
     fzf
     ripgrep
     unzip
+    jq
 
     # Общие инструменты редактора и разработки
     gcc
@@ -68,6 +70,7 @@
     zellij
     bibata-cursors
     git
+    gh
     libsForQt5.qt5ct
     kdePackages.qt6ct
   ];

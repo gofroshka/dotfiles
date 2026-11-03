@@ -679,7 +679,7 @@
       "h": 1,
       "small": true,
       "col": 0,
-      "row": 6
+      "row": 7
     },
     {
       "id": "edit",
@@ -688,6 +688,14 @@
       "h": 1,
       "small": true,
       "col": 7,
+      "row": 7
+    },
+    {
+      "id": "plugin_librepods",
+      "enabled": true,
+      "w": 8,
+      "h": 1,
+      "col": 0,
       "row": 6
     }
   ],

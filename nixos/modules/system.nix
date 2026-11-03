@@ -48,6 +48,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "librepods"
     ];
   };
 

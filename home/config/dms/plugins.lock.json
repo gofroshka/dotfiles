@@ -1,9 +1,21 @@
 {
   "lockfileVersion": 1,
   "plugins": {
+    "aiQuotas": {
+      "repo": "https://github.com/agneswd/dms-ai-quotas",
+      "commit": "2603129556d7e38fa9857fee2472b8dd8c29c492"
+    },
+    "calculator": {
+      "repo": "https://github.com/rochacbruno/DankCalculator",
+      "commit": "a27b80ad8c3dd42da11af83461674fb362817515"
+    },
     "homeAssistantDash": {
       "repo": "https://github.com/ghosty2004/dms-home-assistant",
       "commit": "26a138a352c861ee1a5f2e8caf2f2566715de5e7"
+    },
+    "librepods": {
+      "repo": "https://github.com/demic-dev/airpods-widget-DMS",
+      "commit": "b0a74f89b3ac522716e1ba1da1002881d60c51bf"
     },
     "quickCapture": {
       "repo": "https://github.com/hthienloc/dms-plugins",
