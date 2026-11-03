@@ -13,5 +13,8 @@
   },
   "scroll": {
     "speed": 0.5
+  },
+  "tabs": {
+    "mode": "auto"
   }
 }

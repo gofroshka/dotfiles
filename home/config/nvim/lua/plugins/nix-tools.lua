@@ -23,13 +23,43 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    opts = {
-      formatters_by_ft = {
-        javascript = { "prettier" },
-        javascriptreact = { "prettier" },
-        typescript = { "prettier" },
-        typescriptreact = { "prettier" },
-      },
-    },
+    opts = function(_, opts)
+      opts.formatters = opts.formatters or {}
+      opts.formatters.bun_fmt = {
+        command = "bun",
+        args = { "fmt", "--no-script", "--stdin-filepath", "$FILENAME" },
+        stdin = true,
+        cwd = require("conform.util").root_file({ "bunfig.toml", "package.json", ".git" }),
+      }
+
+      -- Replace Prettier from language extras, preserving other formatters.
+      opts.formatters_by_ft = opts.formatters_by_ft or {}
+      for _, formatters in pairs(opts.formatters_by_ft) do
+        if type(formatters) == "table" then
+          for i, name in ipairs(formatters) do
+            if name == "prettier" or name == "prettierd" then
+              formatters[i] = "bun_fmt"
+            end
+          end
+        end
+      end
+
+      for _, ft in ipairs({
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "json",
+        "jsonc",
+        "css",
+        "scss",
+        "less",
+        "html",
+        "svelte",
+        "yaml",
+      }) do
+        opts.formatters_by_ft[ft] = { "bun_fmt" }
+      end
+    end,
   },
 }

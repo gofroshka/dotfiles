@@ -511,7 +511,15 @@
   "mouseNaturalScroll": false,
   "touchpadTapToClick": false,
   "mouseAccelProfile": "adaptive",
-  "dashOptions": {},
+  "dashOptions": {
+    "media": {
+      "playerStyle": "material",
+      "animatedArt": true
+    },
+    "weather": {
+      "city": true
+    }
+  },
   "floatingWindowTitleBars": true,
   "animationDuration": 250,
   "muxType": "zellij",
@@ -688,5 +696,7 @@
   "clockFormat": "24h",
   "showSeconds": false,
   "widgetColorMode": "default",
-  "widgetBackgroundColor": "default"
+  "widgetBackgroundColor": "default",
+  "audioVisualizerEnabled": true,
+  "bluetoothMprisEnabled": false
 }

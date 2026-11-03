@@ -4,6 +4,12 @@
   users.users.gofroshka.shell = pkgs.zsh;
 
   programs = {
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
+
     zsh = {
       enable = true;
       enableCompletion = true;
