@@ -162,7 +162,12 @@
       "islandRouteWallpaper": "island",
       "hideOnLastDisplay": false,
       "hoverPopouts": false,
-      "clickActionFollowMouse": false
+      "clickActionFollowMouse": false,
+      "attachToScreenEdge": true,
+      "barLengthMode": "full",
+      "widgetStyle": "segments",
+      "widgetPadding": 8,
+      "widgetOutlineEnabled": false
     },
     {
       "id": "dot1793645866658",
@@ -681,5 +686,7 @@
   "avatarRing": "none",
   "greeterAutoLogin": true,
   "clockFormat": "24h",
-  "showSeconds": false
+  "showSeconds": false,
+  "widgetColorMode": "default",
+  "widgetBackgroundColor": "default"
 }
