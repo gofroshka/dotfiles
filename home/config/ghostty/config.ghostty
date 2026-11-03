@@ -8,4 +8,5 @@ gtk-tabs-location = hidden
 
 confirm-close-surface = false
 
-
+working-directory = /home/gofroshka
+window-inherit-working-directory = false

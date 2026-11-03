@@ -1,10 +1,21 @@
 {
 
+  # Trust the homelab CA alongside the standard public certificate authorities.
+  security.pki.certificateFiles = [ ../certs/homelab-root-ca.crt ];
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 3d";
+    };
+    settings.auto-optimise-store = true;
+  };
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

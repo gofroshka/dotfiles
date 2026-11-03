@@ -20,8 +20,11 @@ binds {
     Mod+A hotkey-overlay-title="Browser" { spawn "firefox"; }
     MOD+N hotkey-overlay-title="Notes" {spawn "dms" "ipc" "call" "notepad" "toggle";}
 
-    Mod+S hotkey-overlay-title="Screenshot" { screenshot; }
-    Mod+E hotkey-overlay-title="Open Files" {spawn "dfiles"; }
+    Mod+Shift+S hotkey-overlay-title="Quick Capture" { spawn "dms" "ipc" "call" "quickCapture" "toggle"; }
+    Mod+S hotkey-overlay-title="Screenshot" { spawn "dms" "ipc" "call" "quickCapture" "screenshot" "region" "copy"; }
+
+    Mod+E hotkey-overlay-title="Open Files" { spawn "dfiles"; }
+
     Mod+Q repeat=false { close-window; }
     Mod+F { maximize-column; }
     Mod+C { center-column; }

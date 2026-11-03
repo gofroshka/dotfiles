@@ -1,0 +1,15 @@
+{
+  "quickCapture": {
+    "enabled": true,
+    "doneAction": "clipboard",
+    "postNotification": "toast",
+    "recordMic": true,
+    "recordSystemAudio": false,
+    "skipConfirm": true
+  },
+  "homeAssistantDash": {
+    "enabled": true,
+    "hassUrl": "https://homea",
+    "colorMode": "harmonized"
+  }
+}

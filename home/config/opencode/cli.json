@@ -15,6 +15,11 @@
     "speed": 0.5
   },
   "tabs": {
-    "mode": "auto"
+    "mode": "auto",
+    "layout": "horizontal",
+    "indicators": "status"
+  },
+  "session": {
+    "sidebar": "auto"
   }
 }

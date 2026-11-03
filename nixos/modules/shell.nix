@@ -3,6 +3,11 @@
 {
   users.users.gofroshka.shell = pkgs.zsh;
 
+  environment.variables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
+
   programs = {
     direnv = {
       enable = true;
