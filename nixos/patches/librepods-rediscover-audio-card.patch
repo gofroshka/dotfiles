@@ -1,0 +1,28 @@
+diff --git a/media/mediacontroller.cpp b/media/mediacontroller.cpp
+--- a/media/mediacontroller.cpp
++++ b/media/mediacontroller.cpp
+@@ -97,5 +97,5 @@
+ bool MediaController::isActiveOutputDeviceAirPods() {
+   QString defaultSink = m_pulseAudio->getDefaultSink();
+   LOG_DEBUG("Default sink: " << defaultSink);
+-  return defaultSink.contains(connectedDeviceMacAddress);
++  return !connectedDeviceMacAddress.isEmpty() && defaultSink.contains(connectedDeviceMacAddress);
+ }
+@@ -199,4 +199,9 @@
+ void MediaController::activateA2dpProfile() {
++  // BlueZ may connect before PipeWire publishes the card. A failed initial
++  // lookup must not disable head-detection routing until LibrePods restarts.
++  if (m_deviceOutputName.isEmpty() && !connectedDeviceMacAddress.isEmpty()) {
++    m_deviceOutputName = getAudioDeviceName();
++  }
+   if (connectedDeviceMacAddress.isEmpty() || m_deviceOutputName.isEmpty()) {
+     LOG_WARN("Connected device MAC address or output name is empty, cannot activate A2DP profile");
+     return;
+@@ -232,4 +237,7 @@
+ void MediaController::removeAudioOutputDevice() {
++  if (m_deviceOutputName.isEmpty() && !connectedDeviceMacAddress.isEmpty()) {
++    m_deviceOutputName = getAudioDeviceName();
++  }
+   if (connectedDeviceMacAddress.isEmpty() || m_deviceOutputName.isEmpty()) {
+     LOG_WARN("Connected device MAC address or output name is empty, cannot remove audio output device");
+     return;

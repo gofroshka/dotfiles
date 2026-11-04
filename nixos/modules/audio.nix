@@ -7,6 +7,7 @@
         patches = (old.patches or [ ]) ++ [
           ../patches/librepods-prefer-aac.patch
           ../patches/librepods-sync-noise-menu.patch
+          ../patches/librepods-rediscover-audio-card.patch
         ];
       });
     })
