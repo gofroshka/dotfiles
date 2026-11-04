@@ -44,6 +44,7 @@
     firefox
     ghostty
     telegram-desktop
+    codex
 
     # Системные и консольные утилиты
     btop

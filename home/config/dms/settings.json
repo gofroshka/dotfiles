@@ -98,6 +98,10 @@
           "showWorkspaceName": false,
           "showWorkspaceApps": false,
           "showOccupiedWorkspacesOnly": false
+        },
+        {
+          "id": "aiQuotas",
+          "enabled": true
         }
       ],
       "centerWidgets": [
