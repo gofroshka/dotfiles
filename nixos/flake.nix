@@ -17,6 +17,7 @@
             ./modules/system.nix
             ./modules/programs.nix
             ./modules/appearance.nix
+            ./modules/audio.nix
             ./modules/services.nix
             ./modules/shell.nix
           ];

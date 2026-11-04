@@ -11,7 +11,7 @@
     "enabled": true,
     "hassUrl": "https://homeassistant.homelab.lan",
     "colorMode": "harmonized",
-    "hassToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIzMzhmYzBmMGM3MTQ0MWYwYWM2ZjA0ZDE0MmRhYmE1MiIsImlhdCI6MTc5Mzc0NDA2MSwiZXhwIjoyMTA5MTA0MDYxfQ.n1T51cnWKzBwS3s2Stfebw4Q2n85kXRxElTCKnUpwrM",
+    "hassToken": "REPLACE_LOCALLY",
     "favorites": [
       "switch.yndx_00540"
     ]
@@ -24,7 +24,8 @@
     "enabled": true
   },
   "librepods": {
-    "enabled": true
+    "enabled": true,
+    "barDisplay": "battery"
   },
   "airpods": {
     "pollInterval": "30"

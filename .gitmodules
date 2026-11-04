@@ -1,0 +1,15 @@
+[submodule "dms-plugin-repository"]
+	path = home/config/dms/plugins/.repos/f61334b18b68859a
+	url = https://github.com/gofroshka/dms-plugins.git
+[submodule "dms-ai-quotas"]
+	path = home/config/dms/plugins/aiQuotas
+	url = https://github.com/agneswd/dms-ai-quotas.git
+[submodule "dms-calculator"]
+	path = home/config/dms/plugins/calculator
+	url = https://github.com/rochacbruno/DankCalculator.git
+[submodule "dms-home-assistant"]
+	path = home/config/dms/plugins/homeAssistantDash
+	url = https://github.com/ghosty2004/dms-home-assistant.git
+[submodule "dms-librepods"]
+	path = home/config/dms/plugins/librepods
+	url = https://github.com/gofroshka/airpods-widget-DMS.git

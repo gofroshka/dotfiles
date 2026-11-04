@@ -1,0 +1,24 @@
+diff --git a/media/mediacontroller.cpp b/media/mediacontroller.cpp
+--- a/media/mediacontroller.cpp
++++ b/media/mediacontroller.cpp
+@@ -170,7 +170,8 @@ bool MediaController::isA2dpProfileAvailable() {
+     return false;
+   }
+ 
+-  return m_pulseAudio->isProfileAvailable(m_deviceOutputName, "a2dp-sink-sbc_xq") || 
++  return m_pulseAudio->isProfileAvailable(m_deviceOutputName, "a2dp-sink-aac") ||
++         m_pulseAudio->isProfileAvailable(m_deviceOutputName, "a2dp-sink-sbc_xq") ||
+          m_pulseAudio->isProfileAvailable(m_deviceOutputName, "a2dp-sink-sbc") ||
+          m_pulseAudio->isProfileAvailable(m_deviceOutputName, "a2dp-sink");
+ }
+@@ -187,7 +188,9 @@ QString MediaController::getPreferredA2dpProfile() {
+     return m_cachedA2dpProfile;
+   }
+ 
+-  QStringList profiles = {"a2dp-sink-sbc_xq", "a2dp-sink-sbc", "a2dp-sink"};
++  // PipeWire exposes AAC as either a2dp-sink-aac or the default a2dp-sink.
++  // Prefer it before SBC while retaining fallbacks when AAC is unavailable.
++  QStringList profiles = {"a2dp-sink-aac", "a2dp-sink", "a2dp-sink-sbc_xq", "a2dp-sink-sbc"};
+ 
+   for (const QString &profile : profiles) {
+     if (m_pulseAudio->isProfileAvailable(m_deviceOutputName, profile)) {

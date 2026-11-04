@@ -1,5 +1,5 @@
-// DMS Include Configs
 
+// LibrePods is started by the NixOS-managed user service.
 
 hotkey-overlay {
   skip-at-startup
@@ -7,6 +7,7 @@ hotkey-overlay {
 
 prefer-no-csd
 
+// DMS Include Configs
 include "dms/outputs.kdl"
 include "dms/binds.kdl"
 include "dms/layout.kdl"

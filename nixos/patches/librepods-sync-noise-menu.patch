@@ -1,0 +1,13 @@
+diff --git a/main.cpp b/main.cpp
+--- a/main.cpp
++++ b/main.cpp
+@@ -712,6 +712,9 @@
+             if (auto value = AirPodsPackets::NoiseControl::parseMode(data))
+             {
+                 m_deviceInfo->setNoiseControlMode(value.value());
++                // The initial report may equal DeviceInfo's default, in which
++                // case no change signal is emitted and all tray actions stay unchecked.
++                trayManager->updateNoiseControlState(value.value());
+                 LOG_INFO("Noise control mode received: " << m_deviceInfo->noiseControlMode());
+             }
+         }

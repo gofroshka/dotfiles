@@ -7,6 +7,14 @@
     dux-shell = {
       enable = true;
 
+      # Honor the AirPods plugin's independent Control Center visibility setting.
+      package = pkgs.dux-shell.overrideAttrs (old: {
+        postPatch = (old.postPatch or "") + ''
+          chmod -R u+w ../quickshell
+          patch -d ../quickshell -p1 < ${../patches/dms-airpods-control-center.patch}
+        '';
+      });
+
       # Home Assistant plugin imports the QtWebSockets QML module.
       quickshell.package = pkgs.quickshell.overrideAttrs (old: {
         buildInputs = (old.buildInputs or [ ]) ++ [

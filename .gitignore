@@ -1,2 +1,7 @@
 home/config/dms/.firstlaunch
 /home/config/mozilla/
+
+# Runtime credentials and device pairing material stay local.
+/home/config/gh/
+/home/config/AirPodsTrayApp/AirPodsTrayApp.conf
+/home/config/dms/plugin_settings.json

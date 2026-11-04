@@ -117,6 +117,10 @@
           "id": "notepadButton",
           "enabled": true
         },
+        {
+          "id": "librepods",
+          "enabled": true
+        },
         "cpuUsage",
         "battery",
         "controlCenterButton",
@@ -644,24 +648,24 @@
       "enabled": true,
       "w": 2,
       "h": 1,
-      "col": 4,
-      "row": 4
+      "col": 2,
+      "row": 5
     },
     {
       "id": "idleInhibitor",
       "enabled": true,
       "w": 2,
       "h": 1,
-      "col": 6,
-      "row": 4
+      "col": 0,
+      "row": 5
     },
     {
       "id": "battery",
       "enabled": true,
       "w": 4,
       "h": 1,
-      "col": 0,
-      "row": 5
+      "col": 4,
+      "row": 4
     },
     {
       "id": "diskUsage",
@@ -679,7 +683,7 @@
       "h": 1,
       "small": true,
       "col": 0,
-      "row": 7
+      "row": 6
     },
     {
       "id": "edit",
@@ -688,14 +692,6 @@
       "h": 1,
       "small": true,
       "col": 7,
-      "row": 7
-    },
-    {
-      "id": "plugin_librepods",
-      "enabled": true,
-      "w": 8,
-      "h": 1,
-      "col": 0,
       "row": 6
     }
   ],
@@ -706,5 +702,31 @@
   "widgetColorMode": "default",
   "widgetBackgroundColor": "default",
   "audioVisualizerEnabled": true,
-  "bluetoothMprisEnabled": false
+  "bluetoothMprisEnabled": false,
+  "mediaLyricsProviders": [
+    {
+      "id": "unison",
+      "enabled": true
+    },
+    {
+      "id": "betterlyrics",
+      "enabled": true
+    },
+    {
+      "id": "lyricsplus",
+      "enabled": true
+    },
+    {
+      "id": "kugou",
+      "enabled": true
+    },
+    {
+      "id": "lrclib",
+      "enabled": true
+    },
+    {
+      "id": "youtubemusic",
+      "enabled": true
+    }
+  ]
 }
