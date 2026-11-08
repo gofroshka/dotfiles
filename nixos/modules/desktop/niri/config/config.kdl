@@ -1,0 +1,22 @@
+
+// LibrePods is started by the NixOS-managed user service.
+
+hotkey-overlay {
+  skip-at-startup
+}
+
+prefer-no-csd
+
+// DMS Include Configs
+include "dms/outputs.kdl" optional=true
+include "dms/binds.kdl" optional=true
+include "dms/layout.kdl" optional=true
+include "dms/colors.kdl" optional=true
+include "dms/input.kdl" optional=true
+include "dms/cursor.kdl" optional=true
+include "dms/windowrules.kdl" optional=true
+
+// Personal key bindings
+include "binds.kdl"
+include "window-rules.kdl"
+include "host.kdl"

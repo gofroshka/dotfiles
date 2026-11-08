@@ -1,7 +1,12 @@
-home/config/dms/.firstlaunch
-/home/config/mozilla/
+# Legacy live ~/.config. Reproducible sources now live next to their aspects
+# in nixos/modules/. Never re-add runtime settings, themes or credentials here.
+/home/config/
 
-# Runtime credentials and device pairing material stay local.
-/home/config/gh/
-/home/config/AirPodsTrayApp/AirPodsTrayApp.conf
-/home/config/dms/plugin_settings.json
+# Wallpaper choices are local runtime preferences, not bootstrap inputs.
+/home/Pictures/
+
+# Local build links, not configuration sources.
+/result
+/result-*
+/nixos/result
+/nixos/result-*
