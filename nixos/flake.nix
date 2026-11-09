@@ -12,6 +12,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvf = {
+      url = "github:NotAShelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    zed-theme = {
+      url = "github:daaanny90/zed.nvim/6f5e43ec71252b1fd3fbb5ee157e77e63585deae";
+      flake = false;
+    };
   };
 
   outputs =

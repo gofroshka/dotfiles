@@ -14,6 +14,7 @@
         gcc
         codexPackage
         opencode
+        devenv
         tree-sitter
         deadnix
         nil
