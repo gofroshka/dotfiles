@@ -13,10 +13,15 @@
   };
 
   flake.modules.homeManager.git = { pkgs, ... }: {
-    # No previous declarative Git/gh/LazyGit settings to migrate; keep their
-    # mutable configs and authentication under application ownership.
+    programs.git = {
+      enable = true;
+      settings.user = {
+        name = "Gofroshka";
+        email = "georgiy.guse@gmail.com";
+      };
+    };
+    # Authentication and repository-specific settings remain application-owned.
     home.packages = [
-      pkgs.git
       pkgs.gh
       pkgs.lazygit
     ];

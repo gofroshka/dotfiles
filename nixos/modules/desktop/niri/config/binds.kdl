@@ -13,7 +13,7 @@ binds {
 
     Mod+Return hotkey-overlay-title="Terminal" { spawn "ghostty"; }
     Mod+Shift+Return hotkey-overlay-title="Terminal with Zellij" { spawn "ghostty" "-e" "zellij"; }
-    Mod+A hotkey-overlay-title="Browser" { spawn "firefox"; }
+    Mod+A hotkey-overlay-title="Browser" { spawn "google-chrome"; }
     MOD+N hotkey-overlay-title="Notes" {spawn "dms" "ipc" "call" "notepad" "toggle";}
 
     Mod+Shift+S hotkey-overlay-title="Quick Capture" { spawn "dms" "ipc" "call" "quickCapture" "toggle"; }

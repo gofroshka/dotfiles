@@ -1,8 +1,9 @@
 {
   flake.modules.homeManager.desktop-apps = { pkgs, ... }: {
     home.packages = with pkgs; [
-      firefox
+      google-chrome
       telegram-desktop
+      discord
       bibata-cursors
       wf-recorder
       ffmpeg

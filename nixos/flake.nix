@@ -5,11 +5,11 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts = {
-      url = "github:hercules-ci/flake-parts/ea2630b7470978622c7689a1ff75d2b389175399";
+      url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/095fef2f265c3c0da4fe315efba8f8a04495ab34";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
