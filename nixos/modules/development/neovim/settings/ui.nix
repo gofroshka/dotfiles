@@ -13,7 +13,6 @@
     utility.snacks-nvim = {
       enable = true;
       setupOpts = {
-        dashboard = lib.generators.mkLuaInline ''require("work.dashboard").config()'';
         bigfile.enabled = true;
         explorer.enabled = true;
         picker.enabled = true;

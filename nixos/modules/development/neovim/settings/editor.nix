@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   vim = {
     # Nix owns plugins and parsers; nothing is installed on editor startup.
@@ -11,7 +11,6 @@
     globals = {
       mapleader = " ";
       maplocalleader = "\\";
-      autoformat = true;
     };
     options = {
       number = true;
@@ -47,16 +46,15 @@
       trash-cli
       wl-clipboard
     ];
-    additionalRuntimePaths = [
+    augroups = [ { name = "work_editor"; } ];
+    autocmds = [
       {
-        path = ../config;
-        position = "prepend";
+        event = [ "TextYankPost" ];
+        group = "work_editor";
+        desc = "Highlight copied text";
+        callback = lib.generators.mkLuaInline "vim.hl.on_yank";
       }
     ];
-    luaConfigPost = ''
-      require("work.lsp").setup()
-      require("work.keymaps").setup()
-    '';
 
     autopairs.nvim-autopairs.enable = true;
     autocomplete.blink-cmp = {
@@ -105,8 +103,6 @@
       filetypeMappings.json = [ "jsonc" ];
     };
     languages.html = {
-      enable = true;
-      lsp.enable = false;
       format.enable = false;
       treesitter = {
         enable = true;

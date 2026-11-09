@@ -10,6 +10,5 @@
       "niri/window-rules.kdl".source = ./config/window-rules.kdl;
       "niri/host.kdl".text = lib.mkDefault "";
     };
-
   };
 }
