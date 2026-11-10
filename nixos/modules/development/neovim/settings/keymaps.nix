@@ -22,8 +22,8 @@ in
         "l"
       ]
       ++ [
-        (map "n" "<S-h>" "<cmd>bprevious<cr>" "Previous Buffer")
-        (map "n" "<S-l>" "<cmd>bnext<cr>" "Next Buffer")
+        (map "n" "<S-h>" "<cmd>BufferLineCyclePrev<cr>" "Previous Buffer")
+        (map "n" "<S-l>" "<cmd>BufferLineCycleNext<cr>" "Next Buffer")
         (map [ "n" "i" "x" "s" ] "<C-s>" "<cmd>w<cr><esc>" "Save File")
         (map "n" "<esc>" "<cmd>nohlsearch<cr>" "Clear Search")
         (map "x" "<" "<gv" "Indent Left")

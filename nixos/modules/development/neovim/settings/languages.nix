@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   vim = {
     lsp = {
@@ -35,6 +35,21 @@
       clang.enable = true;
       docker.enable = true;
       terraform.enable = true;
+    };
+
+    treesitter = {
+      # Language modules supply their own parsers; these cover extra syntax.
+      grammars = with pkgs.vimPlugins.nvim-treesitter.grammarPlugins; [
+        diff
+        hcl
+        jsdoc
+        luadoc
+        markdown
+        markdown_inline
+        regex
+        sql
+      ];
+      filetypeMappings.json = [ "jsonc" ];
     };
 
     diagnostics = {

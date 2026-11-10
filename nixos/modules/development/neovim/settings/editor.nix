@@ -68,46 +68,5 @@
     };
     # Use nixpkgs' cached build rather than rebuilding nvf's Rust matcher.
     pluginOverrides.blink-cmp = pkgs.vimPlugins.blink-cmp;
-    treesitter = {
-      enable = true;
-      grammars = with pkgs.vimPlugins.nvim-treesitter.grammarPlugins; [
-        astro
-        bash
-        css
-        diff
-        dockerfile
-        go
-        gomod
-        gowork
-        gosum
-        hcl
-        html
-        javascript
-        jsdoc
-        json
-        lua
-        luadoc
-        markdown
-        markdown_inline
-        nix
-        python
-        regex
-        rust
-        sql
-        svelte
-        toml
-        tsx
-        typescript
-        yaml
-      ];
-      filetypeMappings.json = [ "jsonc" ];
-    };
-    languages.html = {
-      format.enable = false;
-      treesitter = {
-        enable = true;
-        autotagHtml = true;
-      };
-    };
   };
 }

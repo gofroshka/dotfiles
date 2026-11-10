@@ -58,7 +58,11 @@
     };
     tabline.nvimBufferline = {
       enable = true;
-      setupOpts.options.always_show_bufferline = false;
+      setupOpts.options = {
+        always_show_bufferline = false;
+        numbers = "none";
+        sort_by = "insert_at_end";
+      };
     };
     git.gitsigns = {
       enable = true;
