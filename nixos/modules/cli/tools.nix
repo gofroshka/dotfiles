@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.cli-tools = { pkgs, ... }: {
+  flake.modules.homeManager.cli-tools = {pkgs, ...}: {
     home.packages = with pkgs; [
       btop
       curl
@@ -12,7 +12,7 @@
     ];
   };
 
-  flake.modules.homeManager.git = { pkgs, ... }: {
+  flake.modules.homeManager.git = {pkgs, ...}: {
     programs.git = {
       enable = true;
       settings.user = {
@@ -23,6 +23,7 @@
     # Authentication and repository-specific settings remain application-owned.
     home.packages = [
       pkgs.gh
+      pkgs.glab
       pkgs.lazygit
     ];
   };
