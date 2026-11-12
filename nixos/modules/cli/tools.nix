@@ -9,6 +9,8 @@
       unzip
       jq
       file
+      bind
+      sops
     ];
   };
 

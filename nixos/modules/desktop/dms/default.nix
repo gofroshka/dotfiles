@@ -1,4 +1,17 @@
 let
+  dfilesPackage =
+    pkgs:
+    pkgs.dux-files.overrideAttrs (old: {
+      # Dialogs share the main window's app-id. Tag them before sync-shell embeds
+      # the QML so Niri can float only file choosers, regardless of their title.
+      postPatch = ''
+        substituteInPlace quickshell/Modules/ChooserWindow.qml \
+          --replace-fail \
+            'title: (request?.title ?? "") !== "" ? request.title : defaultTitle' \
+            'title: ((request?.title ?? "") !== "" ? request.title : defaultTitle) + " — Dux File Chooser"'
+      ''
+      + (old.postPatch or "");
+    });
   dmsPackage =
     pkgs:
     pkgs.dux-shell.overrideAttrs (old: {
@@ -14,7 +27,7 @@ let
     });
 in
 {
-  flake.modules.nixos.dms = { pkgs, ... }: {
+  flake.modules.nixos.dms = { lib, pkgs, ... }: {
     programs.dux-shell = {
       enable = true;
       package = dmsPackage pkgs;
@@ -22,7 +35,27 @@ in
     };
     programs.dux-files = {
       enable = true;
-      systemd.enable = true;
+      package = dfilesPackage pkgs;
+      portal.enable = true;
+    };
+    # portal.enable installs the vendor unit; the module's systemd.enable would
+    # add another ExecStart in a drop-in and make the service invalid.
+    systemd.user.services.dfiles = {
+      wantedBy = [ "graphical-session.target" ];
+      enableDefaultPath = false;
+    };
+    xdg = {
+      mime.defaultApplications = lib.genAttrs [
+        "inode/directory"
+        "x-scheme-handler/trash"
+        "x-scheme-handler/sftp"
+        "x-scheme-handler/smb"
+      ] (_: [ "dev.duxlabs.files.desktop" ]);
+      portal.config = {
+        common."org.freedesktop.impl.portal.FileChooser" = [ "dfiles" ];
+        # Niri supplies its own desktop-specific config, which takes precedence.
+        niri."org.freedesktop.impl.portal.FileChooser" = lib.mkForce [ "dfiles" ];
+      };
     };
     systemd.user.services.dms.environment.DMS_HIDE_TRAYIDS = "librepods";
   };
@@ -42,7 +75,7 @@ in
         (quickshellPackage pkgs)
         pkgs.matugen
         pkgs.cava
-        pkgs.dux-files
+        (dfilesPackage pkgs)
       ];
       systemd.user.services.dms = {
         Unit = {

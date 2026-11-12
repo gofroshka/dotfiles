@@ -1,6 +1,9 @@
 {
   flake.modules.nixos.niri = {
-    programs.niri.enable = true;
+    programs.niri = {
+      enable = true;
+      useNautilus = false;
+    };
   };
 
   flake.modules.homeManager.niri = { lib, ... }: {

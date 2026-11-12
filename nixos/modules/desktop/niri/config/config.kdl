@@ -19,4 +19,4 @@ include "dms/windowrules.kdl" optional=true
 // Personal key bindings
 include "binds.kdl"
 include "window-rules.kdl"
-include "host.kdl"
+include "host.kdl" optional=true
